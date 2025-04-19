@@ -1,20 +1,24 @@
 {
   "name": "aibot",
   "version": "1.0.0",
+  "description": "Discord Voice Analytics Bot",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js",
+    "dev": "nodemon index.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
   "dependencies": {
     "canvas": "^3.1.0",
-    "chart.js": "^4.4.9",
-    "discord.js": "^14.18.0",
-    "dotenv": "^16.5.0",
+    "chart.js": "^4.4.1",
+    "discord.js": "^14.14.1",
+    "dotenv": "^16.4.1",
     "moment": "^2.30.1",
     "sqlite3": "^5.1.7"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.3"
+  },
+  "engines": {
+    "node": ">=18.0.0"
   }
 }

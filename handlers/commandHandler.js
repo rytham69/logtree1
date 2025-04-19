@@ -95,6 +95,29 @@ class CommandHandler {
 
         await message.reply({ embeds: [embed] });
     }
+
+    // Inside CommandHandler class, add these methods:
+    static async handleAddBadWord(message, args) {
+        if (!message.member.permissions.has('MODERATE_MEMBERS')) return;
+        const word = args[0];
+        if (!word) {
+            await message.reply('Please provide a word to add to the filter.');
+            return;
+        }
+        ModerationHandler.addBadWord(word);
+        await message.reply(`Added "${word}" to the filter.`);
+    }
+
+    static async handleRemoveBadWord(message, args) {
+        if (!message.member.permissions.has('MODERATE_MEMBERS')) return;
+        const word = args[0];
+        if (!word) {
+            await message.reply('Please provide a word to remove from the filter.');
+            return;
+        }
+        ModerationHandler.removeBadWord(word);
+        await message.reply(`Removed "${word}" from the filter.`);
+    }
 }
 
 module.exports = CommandHandler;
