@@ -3,7 +3,10 @@ const path = require('path');
 
 class Database {
     constructor() {
-        this.db = new sqlite3.Database('voiceStats.db');
+        const dbPath = process.env.NODE_ENV === 'production' 
+            ? '/data/voiceStats.db'
+            : 'voiceStats.db';
+        this.db = new sqlite3.Database(dbPath);
         this.init();
     }
 

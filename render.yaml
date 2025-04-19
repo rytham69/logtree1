@@ -2,8 +2,17 @@ services:
   - type: worker
     name: discord-bot
     env: node
+    region: ohio
+    plan: free
     buildCommand: npm install
     startCommand: node index.js
     envVars:
       - key: NODE_ENV
         value: production
+      - key: DISCORD_TOKEN
+        sync: false
+    autoDeploy: true
+    disk:
+      name: sqlite-data
+      mountPath: /data
+      sizeGB: 1
